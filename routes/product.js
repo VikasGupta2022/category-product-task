@@ -10,17 +10,17 @@ productrouter.get('/allproducts/:pg', async (req, res) => {
     const page = parseInt(pg)
     if(page===1){
      console.log(page)
-    const fullData = await pool.query(`SELECT * FROM product WHERE deleted='false' ORDER BY product_id LIMIT 10  OFFSET 0 `) ;
-    console.log(fullData.rows)
-    res.json(fullData.rows)
+    const allData = await pool.query(`SELECT * FROM product WHERE deleted='false' ORDER BY product_id LIMIT 10  OFFSET 0 `) ;
+    console.log(allData.rows)
+    res.json(allData.rows)
    }
    else{
     console.log(page)
-    const a = (page*10)-10
-    console.log(a)
-    const Data = await pool.query(`SELECT * FROM product WHERE deleted='false' ORDER BY product_id LIMIT 9  OFFSET $1 `, [a]);
-    console.log(fullData.rows)
-    res.json(fullData.rows)
+    const x= (page*10)-10
+    console.log(x)
+    const Data = await pool.query(`SELECT * FROM product WHERE deleted='false' ORDER BY product_id LIMIT 9  OFFSET $1 `, [x]);
+    console.log(allData.rows)
+    res.json(allData.rows)
   }
 } catch (error) {
     res.status(404).send({status:'error', msg:'Error fetching product from Database', error})
