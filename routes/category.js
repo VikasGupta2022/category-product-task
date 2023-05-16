@@ -11,7 +11,7 @@ categoryrouter.get('/categories', async (req, res) => {
     res.json(allData.rows)
     
   } catch (error) {
-      res.status(404).send({status:'error', msg:'Error fetching categories from Database',error})
+      res.status(404).send({status:'error', msg:'Error fetching categories from DB',error})
   }
 });
 
@@ -31,7 +31,7 @@ categoryrouter.get('/productbycategory/:id', async (req, res) => {
     res.json(allData.rows);
      
   } catch (error) {
-      res.status(404).send({status:'error', msg:'Error fetching categories from Database',error})
+      res.status(404).send({status:'error', msg:'Error fetching categories from DB',error})
   }
 });
 
@@ -49,7 +49,7 @@ categoryrouter.post('/postCategory', async (req, res) => {
     res.json(newDomain.rows[0]);
 }
 catch (error){
-  res.status(500).send({status: 'error', msg: "Error posting data in Database", error})
+  res.status(500).send({status: 'error', msg: "Error posting data in DB", error})
 }
 });
 
@@ -68,7 +68,7 @@ categoryrouter.put('/updateCategory/:id', async (req, res) => {
     res.json("updated");
 }
 catch (error){
-  res.status(500).send({status: 'error', msg: "Error updating data in Database", error})
+  res.status(500).send({status: 'error', msg: "Error updating data in DB", error})
 
 }
 });
@@ -84,7 +84,7 @@ categoryrouter.put('/deleteCategory/:id', async (req, res) => {
     res.json('deleted')
 
   }catch(error){
-  res.status(500).send({status: 'error', msg: "Error deleting data in Database", error})
+  res.status(500).send({status: 'error', msg: "Error deleting data in DB", error})
 
   }
 });
